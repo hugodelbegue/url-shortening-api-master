@@ -65,7 +65,7 @@ main {
 
 // firt section
 .presentation {
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   padding-bottom: var(--junction-padding);
   gap: var(--space-between-block);
 
@@ -114,6 +114,9 @@ main {
 
 // third section
 .started {
+  // background-image: url(./assets/images/bg-boost-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   background: var(--background-tersiary);
   padding-top: var(--started-padding);
   padding-bottom: var(--started-padding);
