@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="layout_header size_body">
+        <div class="layout_header body_size">
             <h2>Shortly</h2>
             <nav class="burger_menu">
                 <input type="checkbox" id="burger">

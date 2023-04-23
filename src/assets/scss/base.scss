@@ -10,13 +10,16 @@
 
     --red: rgb(244, 98, 98);
 
-    --gray: rgb(191, 191, 191);
+    --gray: rgba(191, 191, 191, 0.156);
     --grayish-violet: rgb(158, 154, 167);
     --very-dark-blue: rgb(53, 50, 62);
     --very-dark-violet: rgb(35, 33, 39);
 
-    --background-main: var(--white);
+    --background-primary: var(--white);
+    --background-secondary: var(--gray);
+    --background-tersiary: var(--dark-violet);
     --background-footer: var(--very-dark-violet);
+    --background-button: var(--cyan);
 
     --color-text: var(--grayish-violet);
     --color-title-light: var(--white);
@@ -24,7 +27,7 @@
 
     // fonts
     --family: 'Poppins', sans-serif;
-    --line-height: 1.5;
+    --line-height: 1.7;
     --font-size: 18px;
     --weight-regular: 400;
     --weight-medium: 500;

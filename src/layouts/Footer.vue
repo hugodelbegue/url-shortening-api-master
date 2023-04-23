@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div class="layout_footer size_body">
+        <div class="layout_footer body_size">
             <h2>Shortly</h2>
             <div class="links_footer">
                 <h3>Features</h3>
@@ -62,11 +62,16 @@
 <style lang="scss" scoped>
 footer {
     --space-link: 2.4em;
+    --size-shortly: 2.5rem;
 }
 
 h2,
 h3 {
     color: var(--color-title-light);
+}
+
+h2 {
+    font-size: var(--size-shortly);
 }
 
 h3:not(:first-child) {
