@@ -2,7 +2,8 @@
 import Header from '@/layouts/Header.vue';
 import Footer from '@/layouts/Footer.vue';
 
-import Button from '@/components/button.vue';
+import Button from '@/components/Button.vue';
+import Card from '@/components/Card.vue';
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import Button from '@/components/button.vue';
     <div class="layout_main">
       <div class="presentation body_size body_center">
         <div class="presentation_img">
-          <img src="./assets/images/illustration-working.svg" alt="">
+          <img src="@/assets/images/illustration-working.svg" alt="">
         </div>
         <div class="presentation_description">
           <div class="text">
@@ -31,9 +32,9 @@ import Button from '@/components/button.vue';
             advanced statistics dashboard.</p>
         </div>
         <div class="statistics_cards">
-          <div>HELLO</div>
-          <div>HELLO</div>
-          <div>HELLO</div>
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
       <div class="started  body_size body_center">
@@ -49,10 +50,12 @@ import Button from '@/components/button.vue';
 main {
   --space-between-block: 2.5rem;
   --space-title-text: 1em;
-  --space-between-card: 5.2rem;
+  --space-between-card: 6rem;
   --size-img: 400px;
   --junction-padding: 12rem;
   --started-padding: 6.8rem;
+  --size-card: 375px;
+  --size-ball: 88px;
 }
 
 .layout_main {
@@ -94,7 +97,7 @@ main {
   background: var(--background-secondary);
   padding-top: var(--junction-padding);
   padding-bottom: var(--space-between-card);
-  gap: var(--space-between-block);
+  gap: calc(var(--space-between-block) + 3em);
 
   .statistics_description {
     display: flex;
