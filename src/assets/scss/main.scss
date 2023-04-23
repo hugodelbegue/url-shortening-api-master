@@ -1,11 +1,11 @@
 @import '@/assets/scss/base.scss';
 
 body {
-    background: var(--background-main);
+    background: var(--background-primary);
     color: var(--color-text);
     font-family: var(--family);
     font-size: var(--font-size);
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-medium);
     line-height: var(--line-height);
 }
 
@@ -18,6 +18,12 @@ body {
     place-content: space-between;
 }
 
+h1 {
+    font-size: 3rem;
+    color: var(--color-title-dark);
+    line-height: 1.1;
+}
+
 h2,
 h3 {
     font-weight: var(--weight-bold);
@@ -25,11 +31,18 @@ h3 {
 }
 
 h2 {
-    font-size: 2.6rem;
+    font-size: 2.05rem;
+    line-height: 1.4;
 }
 
 // class
-.size_body {
+.body_size {
     padding-left: max(var(--body-padding), calc(50% - var(--mobile) / 2));
     padding-right: max(var(--body-padding), calc(50% - var(--mobile) / 2));
+}
+
+.body_center {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
