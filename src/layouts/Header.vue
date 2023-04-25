@@ -31,6 +31,20 @@ import Button from '@/components/Button.vue';
 
 <script>
 export default {
+    mounted() {
+        const { links } = this.$refs;
+        function handleOutsideClick(event) {
+            if (!links.contains(event.target) && links.classList.contains('show')) {
+                links.classList.remove('show');
+                links.classList.add('hide');
+                document.body.classList.remove('hidden');
+                setTimeout(() => {
+                    links.style.display = "none";
+                }, 500);
+            }
+        }
+        document.addEventListener("click", handleOutsideClick);
+    },
     methods: {
         toggleMenu() {
             const { links } = this.$refs;

@@ -56,11 +56,17 @@ input[type="text"] {
     background: var(--background-input);
     border: 4px solid var(--background-input);
     border-radius: var(--angles);
-    padding: 1.3em;
+    padding: .9em;
     display: flex;
     place-items: center;
     line-height: 0;
     width: 100%;
+    font-size: 1em;
+
+    &::selection {
+        width: 3px;
+        height: 20px;
+    }
 
     &::placeholder {
         font-size: var(--size-font-shorten);
