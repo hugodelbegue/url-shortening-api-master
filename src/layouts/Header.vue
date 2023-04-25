@@ -113,9 +113,9 @@ hr {
     position: fixed;
     top: 6rem;
     left: 0;
-    padding: calc(var(--body-padding) * 2) var(--body-padding);
-    margin-left: max(var(--body-padding), calc(50% - var(--mobile) / 2));
-    margin-right: max(var(--body-padding), calc(50% - var(--mobile) / 2));
+    padding: var(--body-padding-double) var(--body-padding);
+    margin-left: var(--side-padding);
+    margin-right: var(--side-padding);
     border-radius: 12px;
     width: -webkit-fill-available;
 

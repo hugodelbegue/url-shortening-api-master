@@ -83,7 +83,7 @@ h3:not(:first-child) {
 }
 
 h3 {
-    font-size: 1em;
+    font-size: var(--font-size);
     margin-bottom: 1.1em;
 }
 

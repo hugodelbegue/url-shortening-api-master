@@ -4,6 +4,7 @@ import Footer from '@/layouts/Footer.vue';
 
 import Button from '@/components/Button.vue';
 import Card from '@/components/Card.vue';
+import Shorten from '@/components/Shorten.vue';
 </script>
 
 <template>
@@ -21,11 +22,12 @@ import Card from '@/components/Card.vue';
               on how your links are performing.</p>
           </div>
           <div class="presentation_button">
-            <Button />
+            <Button text="Get Started" />
           </div>
         </div>
       </div>
       <div class="statistics  body_size body_center">
+        <Shorten />
         <div class="statistics_description">
           <h2>Advanced Statistics</h2>
           <p>Track how your links are performing across the web with our
@@ -43,7 +45,7 @@ import Card from '@/components/Card.vue';
       </div>
       <div class="started  body_size body_center">
         <h2>Boost your links today</h2>
-        <Button />
+        <Button text="Get Started" />
       </div>
     </div>
   </main>
@@ -97,6 +99,7 @@ main {
 
 // second section
 .statistics {
+  position: relative;
   background: var(--background-secondary);
   padding-top: var(--junction-padding);
   padding-bottom: var(--space-between-card);

@@ -23,6 +23,7 @@
     --background-button-active: rgba(42, 207, 207, 0.509);
 
     --color-text: var(--grayish-violet);
+    --color-error: var(--red);
     --color-title-light: var(--white);
     --color-title-dark: var(--very-dark-violet);
     --color-line-through: var(--cyan);
@@ -39,7 +40,10 @@
     --mobile: 375px;
     --desktop: 1440px;
     --body-padding: 1.4rem;
+    --body-padding-double: calc(var(--body-padding) * 2);
     --endpoint-padding: 2.4rem;
+    --side-padding: max(var(--body-padding), calc(50% - var(--mobile) / 2));
+
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;

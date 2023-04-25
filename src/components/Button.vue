@@ -8,7 +8,6 @@
 defineProps({
     text: {
         type: String,
-        default: "Get Started"
     }
 })
 </script>
@@ -17,13 +16,13 @@ defineProps({
 button {
     cursor: pointer;
     background: var(--background-button);
-    border: 3px solid var(--background-button);
+    border: 4px solid var(--background-button);
     color: var(--color-title-light);
     border-radius: 50px;
-    padding: .8em 2.2em;
+    padding: 1.3em 2.2em;
     font-size: 1.4rem;
     font-weight: var(--weight-bold);
-    line-height: 1;
+    line-height: 0;
     transition: background .2s ease;
 
     &:hover {

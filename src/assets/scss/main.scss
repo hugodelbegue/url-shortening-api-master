@@ -49,14 +49,14 @@ li {
 
     button {
         width: 100%;
-        font-size: 1em;
+        font-size: 1em !important;
     }
 }
 
 // class
 .body_size {
-    padding-left: max(var(--body-padding), calc(50% - var(--mobile) / 2));
-    padding-right: max(var(--body-padding), calc(50% - var(--mobile) / 2));
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
 }
 
 .body_center {
