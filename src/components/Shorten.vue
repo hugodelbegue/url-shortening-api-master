@@ -56,25 +56,17 @@ input[type="text"] {
     background: var(--background-input);
     border: 4px solid var(--background-input);
     border-radius: var(--angles);
-    padding: .9em;
+    padding: .93em;
     display: flex;
     place-items: center;
     line-height: 0;
     width: 100%;
     font-size: 1em;
 
-    &::selection {
-        width: 3px;
-        height: 20px;
-    }
-
     &::placeholder {
         font-size: var(--size-font-shorten);
     }
 
-    &::before {
-        content: "Please ass a link";
-    }
 }
 
 button {
@@ -93,5 +85,9 @@ button {
 
 .border_error {
     border-color: var(--color-error) !important;
+
+    &::placeholder {
+        color: var(--color-error) !important;
+    }
 }
 </style>
