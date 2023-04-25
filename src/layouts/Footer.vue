@@ -115,7 +115,17 @@ h3 {
 
 .social_icon {
     svg {
+        cursor: pointer;
         width: 29px;
+        transition: .25s ease;
+
+        &:hover {
+            fill: var(--background-button);
+        }
+
+        &:active {
+            fill: var(--background-button);
+        }
     }
 }
 </style>

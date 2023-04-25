@@ -12,7 +12,7 @@ import Button from '@/components/Button.vue';
                 <label for="burger">
                     <div class="icon_menu"></div>
                 </label>
-                <div class="burger_links hide" ref="links">
+                <div class="burger_links" ref="links">
                     <ul>
                         <li>Features</li>
                         <li>Pricing</li>
@@ -34,7 +34,7 @@ export default {
     methods: {
         toggleMenu() {
             const { links } = this.$refs;
-            if (links.classList.contains('hide')) {
+            if (links.classList.contains('hide') || !(links.classList.contains('show'))) {
                 links.style.display = "flex";
                 links.classList.remove('hide');
                 links.classList.add('show');
@@ -107,6 +107,7 @@ hr {
 .burger_links {
     background: var(--background-tersiary);
     z-index: 1;
+    display: none;
     flex-direction: column;
     text-align: center;
     position: fixed;
@@ -125,13 +126,7 @@ hr {
     }
 
     li {
-        cursor: pointer;
         color: var(--color-title-light);
-
-        button {
-            width: 100%;
-            font-size: 1em;
-        }
     }
 }
 

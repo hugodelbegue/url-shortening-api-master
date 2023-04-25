@@ -1,18 +1,41 @@
 <template>
     <div class="card">
         <div class="ball_card">
-            <img src="@/assets/images/icon-brand-recognition.svg" alt="">
+            <img :src="imgUrl(img)" :alt="alt(title)">
         </div>
         <div class="card_description">
-            <h3>Brand Recognition</h3>
-            <p>Boost your brand recognition with each click. Generic links don’t
-                mean a thing. Branded links help instil confidence in your content.</p>
+            <h3>{{ title }}</h3>
+            <p>{{ text }}</p>
         </div>
     </div>
 </template>
 
 <script setup>
-
+defineProps({
+    img: {
+        type: String
+    },
+    title: {
+        type: String
+    },
+    text: {
+        type: String
+    },
+})
+</script>
+<script>
+export default {
+    data() {
+        return {
+            imgUrl(file) {
+                return new URL(`../assets/images/${file}`, import.meta.url).href;
+            },
+            alt(title) {
+                return "Icon de la la section " + title;
+            }
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -35,6 +35,24 @@ h2 {
     line-height: 1.4;
 }
 
+li {
+    cursor: pointer;
+    transition: color .25s ease;
+
+    &:hover {
+        color: var(--background-button) !important;
+    }
+
+    &:active {
+        color: var(--background-button) !important;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
 // class
 .body_size {
     padding-left: max(var(--body-padding), calc(50% - var(--mobile) / 2));
