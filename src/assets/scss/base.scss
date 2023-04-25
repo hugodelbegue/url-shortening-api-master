@@ -4,7 +4,7 @@
 :root {
 
     // colors
-    --white: rgba(255, 255, 255, 0.87);
+    --white: rgb(255, 255, 255);
     --cyan: rgb(42, 207, 207);
     --dark-violet: rgb(59, 48, 84);
 
@@ -24,6 +24,7 @@
     --color-text: var(--grayish-violet);
     --color-title-light: var(--white);
     --color-title-dark: var(--very-dark-violet);
+    --color-line-through: var(--cyan);
 
     // fonts
     --family: 'Poppins', sans-serif;
@@ -36,9 +37,8 @@
     // layout
     --mobile: 375px;
     --desktop: 1440px;
-    --body-padding: 1rem;
+    --body-padding: 1.4rem;
     --endpoint-padding: 2.4rem;
-    --size-burger: 28px;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;

@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="ball_card">
-            <img src="../assets/images/icon-brand-recognition.svg" alt="">
+            <img src="@/assets/images/icon-brand-recognition.svg" alt="">
         </div>
         <div class="card_description">
             <h3>Brand Recognition</h3>
@@ -23,6 +23,8 @@ h3 {
 .card {
     position: relative;
     background: var(--background-primary);
+    display: flex;
+    place-content: center;
     padding-top: 4.3em;
     padding-bottom: 2.4em;
     padding-left: 1.6em;
@@ -39,7 +41,6 @@ h3 {
 
     position: absolute;
     top: -45px;
-    left: calc((var(--size-card) - var(--size-ball)) / 2);
 }
 
 .card_description {

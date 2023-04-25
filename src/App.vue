@@ -32,6 +32,7 @@ import Card from '@/components/Card.vue';
             advanced statistics dashboard.</p>
         </div>
         <div class="statistics_cards">
+          <div class="line_through"></div>
           <Card />
           <Card />
           <Card />
@@ -54,8 +55,7 @@ main {
   --size-img: 400px;
   --junction-padding: 12rem;
   --started-padding: 6.8rem;
-  --size-card: 375px;
-  --size-ball: 88px;
+  --size-line-through: 10px;
 }
 
 .layout_main {
@@ -106,18 +106,29 @@ main {
   }
 
   .statistics_cards {
+    position: relative;
     display: flex;
     flex-direction: column;
+    place-items: center;
     gap: var(--space-between-card);
+  }
+
+  .line_through {
+    content: "";
+    background: var(--color-line-through);
+    position: absolute;
+    width: 10px;
+    height: 100%;
   }
 }
 
 // third section
 .started {
-  // background-image: url(./assets/images/bg-boost-mobile.svg);
+  background-image: url(@/assets/images/bg-boost-mobile.svg);
+  background-color: var(--background-tersiary);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background: var(--background-tersiary);
   padding-top: var(--started-padding);
   padding-bottom: var(--started-padding);
   gap: 1em;

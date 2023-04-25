@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--color-title-dark);
     line-height: 1.1;
 }
@@ -31,7 +31,7 @@ h3 {
 }
 
 h2 {
-    font-size: 2.05rem;
+    font-size: 1.9rem;
     line-height: 1.4;
 }
 
@@ -45,4 +45,8 @@ h2 {
     display: flex;
     flex-direction: column;
     place-items: center;
+}
+
+.hidden {
+    overflow: hidden;
 }
