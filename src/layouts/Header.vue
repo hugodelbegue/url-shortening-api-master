@@ -8,8 +8,8 @@ import Button from '@/components/Button.vue';
         <div class="layout_header body_size">
             <Logo color="#34313D" />
             <nav class="burger_menu">
-                <input @change="toggleMenu" type="checkbox" id="burger">
-                <label for="burger">
+                <input @change="openMenu" type="checkbox" id="burger">
+                <label ref="burger" for="burger">
                     <div class="icon_menu"></div>
                 </label>
                 <div class="burger_links" ref="links">
@@ -32,34 +32,30 @@ import Button from '@/components/Button.vue';
 <script>
 export default {
     mounted() {
-        const { links } = this.$refs;
-        function handleOutsideClick(event) {
+        const { links, burger } = this.$refs;
+        function clickOut(event) {
             if (!links.contains(event.target) && links.classList.contains('show')) {
                 links.classList.remove('show');
                 links.classList.add('hide');
+                burger.style.pointerEvents = "";
                 document.body.classList.remove('hidden');
                 setTimeout(() => {
                     links.style.display = "none";
                 }, 500);
             }
         }
-        document.addEventListener("click", handleOutsideClick);
+        document.addEventListener("click", clickOut);
     },
     methods: {
-        toggleMenu() {
-            const { links } = this.$refs;
-            if (links.classList.contains('hide') || !(links.classList.contains('show'))) {
+        openMenu() {
+            const { links, burger } = this.$refs;
+            if (links.classList.contains('hide') || !links.classList.contains('show')) {
                 links.style.display = "flex";
                 links.classList.remove('hide');
                 links.classList.add('show');
-            } else {
-                links.classList.remove('show');
-                links.classList.add('hide');
-                setTimeout(() => {
-                    links.style.display = "none";
-                }, 500);
+                burger.style.pointerEvents = "none";
+                document.body.classList.add('hidden');
             }
-            document.body.classList.toggle('hidden');
         }
     }
 }
