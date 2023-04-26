@@ -7,7 +7,20 @@ import Button from '@/components/Button.vue';
     <header>
         <div class="layout_header body_size">
             <Logo color="#34313D" />
-            <nav class="burger_menu">
+            <nav class="nav_desktop">
+                <ul>
+                    <li>Features</li>
+                    <li>Pricing</li>
+                    <li>Resources</li>
+                </ul>
+                <ul>
+                    <li>Login</li>
+                    <li>
+                        <Button text="Sign&nbsp;Up" />
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav_mobile">
                 <input @change="openMenu" type="checkbox" id="burger">
                 <label ref="burger" for="burger">
                     <div class="icon_menu"></div>
@@ -20,7 +33,7 @@ import Button from '@/components/Button.vue';
                         <hr>
                         <li>Login</li>
                         <li>
-                            <Button text="Sign Up" />
+                            <Button text="Sign&nbsp;Up" />
                         </li>
                     </ul>
                 </div>
@@ -62,8 +75,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/responsive.scss';
+
 header {
     --size-burger: 30px;
+    --space-between-links: 1.8em;
+    --color-hover: var(--background-button);
+
+    @media #{$navDesktop} {
+        --color-hover: var(--very-dark-blue);
+    }
+}
+
+svg {
+    width: 150px;
 }
 
 input[type="checkbox"] {
@@ -90,7 +115,11 @@ hr {
     display: flex;
     place-content: space-between;
     place-items: center;
-    padding-top: var(--endpoint-padding);
+    padding-top: var(--endpoint);
+
+    @media #{$navDesktop} {
+        gap: 3em;
+    }
 }
 
 .icon_menu,
@@ -114,6 +143,14 @@ hr {
     bottom: 12px;
 }
 
+.nav_mobile {
+    display: flex;
+
+    @media #{$navDesktop} {
+        display: none;
+    }
+}
+
 .burger_links {
     background: var(--background-tersiary);
     z-index: 1;
@@ -121,22 +158,51 @@ hr {
     flex-direction: column;
     text-align: center;
     position: fixed;
-    top: 6rem;
+    top: 6.4rem;
     left: 0;
-    padding: var(--body-padding-double) var(--body-padding);
-    margin-left: var(--side-padding);
-    margin-right: var(--side-padding);
+    padding: var(--side-double) var(--side);
+    margin-left: var(--body-side);
+    margin-right: var(--body-side);
     border-radius: 12px;
     width: -webkit-fill-available;
 
     ul {
         display: flex;
         flex-direction: column;
-        gap: 1.8em;
+        gap: var(--space-between-links);
     }
 
     li {
         color: var(--color-title-light);
+    }
+}
+
+.nav_desktop {
+    display: none;
+    place-content: space-between;
+    place-items: center;
+    width: 100%;
+
+    @media #{$navDesktop} {
+        display: flex;
+    }
+
+    ul {
+        display: flex;
+        place-items: center;
+        gap: var(--space-between-links);
+    }
+
+    li {
+
+        &:hover,
+        &:active {
+            color: var(--color-hover) !important;
+        }
+    }
+
+    button {
+        padding: 1.1em 1.6em;
     }
 }
 

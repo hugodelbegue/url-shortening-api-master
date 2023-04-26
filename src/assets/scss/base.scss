@@ -38,11 +38,20 @@
 
     // layout
     --mobile: 375px;
-    --desktop: 1440px;
-    --body-padding: 1.4rem;
-    --body-padding-double: calc(var(--body-padding) * 2);
-    --endpoint-padding: 2.4rem;
-    --side-padding: max(var(--body-padding), calc(50% - var(--mobile) / 2));
+    --tablet: 720px;
+    --desktop: 1120px;
+    --side: 1.4rem;
+    --side-double: calc(var(--side) * 2);
+    --endpoint: 2.8rem;
+    --body-side: max(var(--side), calc(50% - var(--mobile) / 2));
+
+    @media #{$mobileScreen} {
+        --body-side: min(var(--side), calc(50% - var(--mobile) / 2));
+    }
+
+    @media #{$desktopScreen} {
+        --body-side: max(var(--side), calc(50% - var(--desktop) / 2));
+    }
 
 
     font-synthesis: none;

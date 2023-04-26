@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <article class="card">
         <div class="ball_card">
             <img :src="imgUrl(img)" :alt="alt(title)">
         </div>
@@ -7,7 +7,7 @@
             <h3>{{ title }}</h3>
             <p>{{ text }}</p>
         </div>
-    </div>
+    </article>
 </template>
 
 <script setup>
@@ -39,6 +39,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+article {
+    --width-ball: 95px;
+}
+
 h3 {
     font-size: 1.25em;
 }
@@ -53,17 +57,25 @@ h3 {
     padding-left: 1.6em;
     padding-right: 1.6em;
     border-radius: 7px;
+    width: 100%;
 }
 
 .ball_card {
     background: var(--background-tersiary);
     display: flex;
+    place-content: center;
+    place-items: center;
     border-radius: 50%;
-    width: fit-content;
-    padding: 1.7rem;
+    width: var(--width-ball);
+    height: auto;
+    aspect-ratio: 1 / 1;
 
     position: absolute;
-    top: -45px;
+    top: calc(var(--width-ball) / -2);
+
+    img {
+        height: 50%;
+    }
 }
 
 .card_description {

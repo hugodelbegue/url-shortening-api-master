@@ -22,7 +22,7 @@ import Shorten from '@/components/Shorten.vue';
               on how your links are performing.</p>
           </div>
           <div class="presentation_button">
-            <Button text="Get Started" />
+            <Button text="Get&nbsp;Started" />
           </div>
         </div>
       </div>
@@ -35,17 +35,17 @@ import Shorten from '@/components/Shorten.vue';
         </div>
         <div class="statistics_cards">
           <div class="line_through"></div>
-          <Card img="icon-brand-recognition.svg" title="Brand Recognition" text="Boost your brand recognition with each click. Generic links don’t 
+          <Card class="one" img="icon-brand-recognition.svg" title="Brand Recognition" text="Boost your brand recognition with each click. Generic links don’t 
   mean a thing. Branded links help instil confidence in your content." />
-          <Card img="icon-detailed-records.svg" title="Detailed Records" text="Gain insights into who is clicking your links. Knowing when and where 
+          <Card class="two" img="icon-detailed-records.svg" title="Detailed Records" text="Gain insights into who is clicking your links. Knowing when and where 
   people engage with your content helps inform better decisions." />
-          <Card img="icon-fully-customizable.svg" title="Fully Customizable" text="Improve brand awareness and content discoverability through customizable 
+          <Card class="three" img="icon-fully-customizable.svg" title="Fully Customizable" text="Improve brand awareness and content discoverability through customizable 
   links, supercharging audience engagement." />
         </div>
       </div>
       <div class="started  body_size body_center">
         <h2>Boost your links today</h2>
-        <Button text="Get Started" />
+        <Button text="Get&nbsp;Started" />
       </div>
     </div>
   </main>
@@ -53,6 +53,8 @@ import Shorten from '@/components/Shorten.vue';
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/responsive.scss';
+
 main {
   --space-between-block: 2.5rem;
   --space-title-text: 1em;
@@ -61,6 +63,17 @@ main {
   --junction-padding: 12rem;
   --started-padding: 6.8rem;
   --size-line-through: 10px;
+  --padding-card-bottom: var(--space-between-card);
+  --offset: 3rem;
+
+  @media #{$tabletScreen} {
+    --started-padding: 3.4rem;
+  }
+
+  @media #{$navDesktop} {
+    --space-between-card: 2rem;
+    --padding-card-bottom: 10.5rem;
+  }
 }
 
 .layout_main {
@@ -74,8 +87,22 @@ main {
   padding-bottom: var(--junction-padding);
   gap: var(--space-between-block);
 
+  @media #{$tabletScreen} {
+    padding-top: 3.2rem;
+  }
+
+  @media #{$desktopScreen} {
+    flex-direction: row-reverse;
+    gap: 0;
+    padding-top: 5rem;
+  }
+
   .presentation_img {
     height: var(--size-img);
+
+    @media #{$desktopScreen} {
+      width: 50%;
+    }
 
     img {
       position: relative;
@@ -89,10 +116,23 @@ main {
     flex-direction: column;
     gap: var(--space-between-block);
 
+    @media #{$tabletScreen} {
+      max-width: var(--tablet);
+    }
+
+    @media #{$desktopScreen} {
+      text-align: left;
+      max-width: auto;
+    }
+
     .text {
       display: flex;
       flex-direction: column;
       gap: var(--space-title-text);
+
+      @media #{$desktopScreen} {
+        gap: 0;
+      }
     }
   }
 }
@@ -102,13 +142,22 @@ main {
   position: relative;
   background: var(--background-secondary);
   padding-top: var(--junction-padding);
-  padding-bottom: var(--space-between-card);
+  padding-bottom: var(--padding-card-bottom);
   gap: calc(var(--space-between-block) + 3em);
+
+  @media #{$navDesktop} {
+    --space-between-block: 6rem;
+  }
 
   .statistics_description {
     display: flex;
     flex-direction: column;
     gap: var(--space-title-text);
+
+    @media #{$tabletScreen} {
+      max-width: 32rem;
+    }
+
   }
 
   .statistics_cards {
@@ -117,6 +166,24 @@ main {
     flex-direction: column;
     place-items: center;
     gap: var(--space-between-card);
+
+    @media #{$navDesktop} {
+      flex-direction: row;
+      text-align: left;
+
+      .one {
+        bottom: var(--offset);
+      }
+
+      .three {
+        top: var(--offset);
+      }
+
+      &:deep(.ball_card) {
+        --width-ball: 85px;
+        left: 30px;
+      }
+    }
   }
 
   .line_through {
@@ -125,6 +192,11 @@ main {
     position: absolute;
     width: 10px;
     height: 100%;
+
+    @media #{$navDesktop} {
+      width: 100%;
+      height: 10px;
+    }
   }
 }
 
@@ -139,8 +211,19 @@ main {
   padding-bottom: var(--started-padding);
   gap: 1em;
 
+  @media #{$tabletScreen} {
+    background-image: url(@/assets/images/bg-boost-desktop.svg);
+  }
+
   h2 {
     color: var(--color-title-light);
+  }
+}
+
+.presentation_button>button,
+.started>button {
+  @media #{$desktopScreen} {
+    padding: 1.1em 1.9em;
   }
 }
 </style>

@@ -8,7 +8,7 @@ import Button from './Button.vue';
             <input :class="error" type="text" placeholder="Shorten a link here...">
             <p v-if="false" class="error">Please ass a link</p>
         </div>
-        <Button text="Shorten It!" />
+        <Button text="Shorten&nbsp;It!" />
     </form>
 </template>
 
@@ -28,28 +28,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/responsive.scss';
+
 form {
     --background-input: #fff;
     --size-font-shorten: calc(var(--font-size) + 3px);
     --angles: 7px;
+    --padding: var(--side);
+    --middle: calc(-185px / 2);
+    --between: var(--side);
+
+    @media #{$tabletScreen} {
+        --padding: 3rem 4rem;
+        --middle: calc(-157px / 2);
+        --between: 1.4rem;
+    }
 }
 
 .shorten {
     position: absolute;
-    top: calc(-185px / 2);
+    top: var(--middle);
     display: flex;
     flex-direction: column;
-    gap: var(--body-padding);
+    gap: var(--side);
     background-color: var(--background-tersiary);
     background-image: url(@/assets/images/bg-shorten-mobile.svg);
-    background-position-y: 300%;
+    background-position-y: top;
+    background-position-x: right;
+    background-size: 80% 80%;
     background-repeat: no-repeat;
-    background-size: cover;
-    padding: var(--body-padding);
-    margin-left: var(--side-padding);
-    margin-right: var(--side-padding);
+    padding: var(--padding);
+    margin-left: var(--body-side);
+    margin-right: var(--body-side);
     border-radius: 12px;
     width: -webkit-fill-available;
+
+    @media #{$tabletScreen} {
+        flex-direction: row;
+        background-image: url(@/assets/images/bg-shorten-desktop.svg);
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.input_form {
+    @media #{$tabletScreen} {
+        width: 100%;
+    }
 }
 
 input[type="text"] {

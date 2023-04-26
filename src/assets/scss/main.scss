@@ -22,6 +22,10 @@ h1 {
     font-size: 2.8rem;
     color: var(--color-title-dark);
     line-height: 1.1;
+
+    @media #{$desktopScreen} {
+        font-size: 4.5rem;
+    }
 }
 
 h2,
@@ -33,6 +37,10 @@ h3 {
 h2 {
     font-size: 1.9rem;
     line-height: 1.4;
+
+    @media #{$desktopScreen} {
+        font-size: 2.3rem;
+    }
 }
 
 li {
@@ -55,8 +63,8 @@ li {
 
 // class
 .body_size {
-    padding-left: var(--side-padding);
-    padding-right: var(--side-padding);
+    padding-left: var(--body-side);
+    padding-right: var(--body-side);
 }
 
 .body_center {
