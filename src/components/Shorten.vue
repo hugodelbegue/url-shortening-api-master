@@ -11,8 +11,9 @@ import Short from './Short.vue';
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <div :class="space" class="list" v-for="link in listLinks" :key="link">
-        <Short :class="copied" :full="link.full" :short="link.short" :button="link.button" />
+    <div :class="space" class="list">
+        <Short v-for="link in listLinks" :key="link" :class="copied" :full="link.full" :short="link.short"
+            :button="link.button" />
     </div>
 </template>
 
@@ -25,9 +26,19 @@ export default {
                     full: "https://www.frontendmentor.io",
                     short: "https://rel.ink/k4iKyk",
                     button: "Copy"
+                },
+                2: {
+                    full: "https://www.frontendmentor.io",
+                    short: "https://rel.ink/k4iKyk",
+                    button: "Copied!"
+                },
+                3: {
+                    full: "https://www.frontendmentor.io",
+                    short: "https://rel.ink/k4iKyk",
+                    button: "Copy"
                 }
             },
-            error: false
+            error: false,
         }
     },
     computed: {
@@ -42,10 +53,8 @@ export default {
             }
         },
         copied() {
-            for (let link in this.listLinks) {
-                return {
-                    copied: this.listLinks[link].button === "Copied!"
-                }
+            return {
+                copied: true
             }
         },
         submitForm() {
