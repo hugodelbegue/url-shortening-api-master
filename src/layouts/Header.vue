@@ -202,7 +202,7 @@ hr {
     }
 
     button {
-        padding: 1.1em 1.6em;
+        padding: .6em 1.3em;
     }
 }
 

@@ -1,5 +1,6 @@
 <script setup>
 import Button from './Button.vue';
+import Short from './Short.vue';
 </script>
 
 <template>
@@ -10,14 +11,7 @@ import Button from './Button.vue';
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <div class="shorten_link">
-        <div class="full_link">https://www.frontendmentor.io</div>
-        <hr>
-        <div class="short_interaction">
-            <div class="short_link">https://rel.ink/k4iKyk</div>
-            <Button text="Copy" />
-        </div>
-    </div>
+    <Short />
 </template>
 
 <script>
@@ -41,7 +35,6 @@ export default {
 form {
     --background-input: #fff;
     --size-font-shorten: calc(var(--font-size) + 3px);
-    --angles: 7px;
     --padding: var(--side);
     --middle: calc(-185px / 2);
     --between: var(--side);
@@ -68,7 +61,7 @@ form {
     padding: var(--padding);
     margin-left: var(--body-side);
     margin-right: var(--body-side);
-    border-radius: 12px;
+    border-radius: calc(var(--angles-block) + 5px);
     width: -webkit-fill-available;
 
     @media #{$tabletScreen} {
@@ -88,7 +81,7 @@ form {
 input[type="text"] {
     background: var(--background-input);
     border: 4px solid var(--background-input);
-    border-radius: var(--angles);
+    border-radius: var(--angles-block);
     padding: .93em;
     display: flex;
     place-items: center;
@@ -99,12 +92,11 @@ input[type="text"] {
     &::placeholder {
         font-size: var(--size-font-shorten);
     }
-
 }
 
 button {
     font-size: var(--size-font-shorten);
-    border-radius: var(--angles);
+    border-radius: var(--angles-block);
 }
 
 .error {
@@ -122,37 +114,5 @@ button {
     &::placeholder {
         color: var(--color-error) !important;
     }
-}
-
-.shorten_link {
-    background: var(--background-primary);
-    border-radius: 12px;
-    text-align: left;
-    width: -webkit-fill-available;
-
-    hr {
-        width: 100%;
-    }
-
-    button {
-        width: 100%;
-        border-radius: var(--angles);
-    }
-}
-
-.short_interaction {
-    display: flex;
-    flex-direction: column;
-    gap: var(--side);
-}
-
-.full_link,
-.short_link {
-    line-height: 1;
-}
-
-.full_link,
-.short_interaction {
-    padding: var(--side);
 }
 </style>

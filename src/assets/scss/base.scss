@@ -43,6 +43,7 @@
     --side: 1.4rem;
     --side-double: calc(var(--side) * 2);
     --endpoint: 2.8rem;
+    --angles-block: 7px;
     --body-side: max(var(--side), calc(50% - var(--mobile) / 2));
 
     @media #{$mobileScreen} {

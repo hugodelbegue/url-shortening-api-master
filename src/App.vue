@@ -61,6 +61,7 @@ main {
   --space-between-card: 6rem;
   --size-img: 400px;
   --junction-padding: 12rem;
+  --statistics-padding: calc((var(--junction-padding) / 2) + 4px);
   --started-padding: 6.8rem;
   --size-line-through: 10px;
   --padding-card-bottom: var(--space-between-card);
@@ -68,6 +69,7 @@ main {
 
   @media #{$tabletScreen} {
     --started-padding: 3.4rem;
+    --statistics-padding: calc((var(--junction-padding) / 2) - 17px);
   }
 
   @media #{$navDesktop} {
@@ -141,9 +143,8 @@ main {
 .statistics {
   position: relative;
   background: var(--background-secondary);
-  padding-top: var(--junction-padding);
+  padding-top: var(--statistics-padding);
   padding-bottom: var(--padding-card-bottom);
-  gap: calc(var(--space-between-block) + 3em);
 
   @media #{$navDesktop} {
     --space-between-block: 6rem;
@@ -153,6 +154,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: var(--space-title-text);
+    margin-top: calc(var(--space-between-block) + 3em);
 
     @media #{$tabletScreen} {
       max-width: 32rem;
@@ -166,6 +168,7 @@ main {
     flex-direction: column;
     place-items: center;
     gap: var(--space-between-card);
+    margin-top: calc(var(--space-between-block) + 3em);
 
     @media #{$navDesktop} {
       flex-direction: row;
@@ -217,13 +220,6 @@ main {
 
   h2 {
     color: var(--color-title-light);
-  }
-}
-
-.presentation_button>button,
-.started>button {
-  @media #{$desktopScreen} {
-    padding: 1.1em 1.9em;
   }
 }
 </style>
