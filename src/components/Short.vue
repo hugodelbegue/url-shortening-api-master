@@ -3,7 +3,7 @@ import Button from './Button.vue';
 </script>
 
 <template>
-    <div class="shorten_link" :class="style">
+    <div class="shorten_link">
         <div class="full_link">{{ full }}</div>
         <hr>
         <div class="short_interaction">
@@ -24,9 +24,6 @@ export default {
         },
         button: {
             type: String
-        },
-        style: {
-            type: Object
         }
     }
 }
@@ -42,7 +39,6 @@ export default {
     border-radius: calc(var(--angles-block) + 5px);
     text-align: left;
     width: -webkit-fill-available;
-    margin-top: 1.8rem;
 
     @media #{$tabletScreen} {
         display: flex;
@@ -52,6 +48,7 @@ export default {
 
     hr {
         width: 100%;
+        border-color: var(--background-secondary);
 
         @media #{$tabletScreen} {
             display: none;

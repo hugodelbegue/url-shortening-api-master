@@ -11,15 +11,22 @@ import Short from './Short.vue';
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <Short :class="copied" full="https://www.frontendmentor.io" short="https://rel.ink/k4iKyk" :button="this.copy"
-        :style="space" />
+    <div :class="space" class="list" v-for="link in listLinks" :key="link">
+        <Short :class="copied" :full="link.full" :short="link.short" :button="link.button" />
+    </div>
 </template>
 
 <script>
 export default {
     data() {
         return {
-            copy: "Copy",
+            listLinks: {
+                1: {
+                    full: "https://www.frontendmentor.io",
+                    short: "https://rel.ink/k4iKyk",
+                    button: "Copy"
+                }
+            },
             error: false
         }
     },
@@ -35,8 +42,10 @@ export default {
             }
         },
         copied() {
-            return {
-                copied: this.copy === "Copied!"
+            for (let link in this.listLinks) {
+                return {
+                    copied: this.listLinks[link].button === "Copied!"
+                }
             }
         },
         submitForm() {
@@ -116,6 +125,15 @@ button {
     border-radius: var(--angles-block);
 }
 
+.list {
+    --space-links: 1.8rem;
+    width: 100%;
+    margin-top: var(--space-links);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-links);
+}
+
 // class
 .error {
     color: var(--color-error);
@@ -139,7 +157,11 @@ button {
 }
 
 .space {
-    margin-top: 3.8rem;
+    margin-top: calc(var(--space-links) + 2rem);
+
+    @media #{$tabletScreen} {
+        margin-top: var(--space-links);
+    }
 }
 
 .copied:deep(button) {
