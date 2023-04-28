@@ -10,6 +10,14 @@ import Button from './Button.vue';
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
+    <div class="shorten_link">
+        <div class="full_link">https://www.frontendmentor.io</div>
+        <hr>
+        <div class="short_interaction">
+            <div class="short_link">https://rel.ink/k4iKyk</div>
+            <Button text="Copy" />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -114,5 +122,37 @@ button {
     &::placeholder {
         color: var(--color-error) !important;
     }
+}
+
+.shorten_link {
+    background: var(--background-primary);
+    border-radius: 12px;
+    text-align: left;
+    width: -webkit-fill-available;
+
+    hr {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        border-radius: var(--angles);
+    }
+}
+
+.short_interaction {
+    display: flex;
+    flex-direction: column;
+    gap: var(--side);
+}
+
+.full_link,
+.short_link {
+    line-height: 1;
+}
+
+.full_link,
+.short_interaction {
+    padding: var(--side);
 }
 </style>
