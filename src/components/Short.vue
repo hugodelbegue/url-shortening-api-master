@@ -3,22 +3,31 @@ import Button from './Button.vue';
 </script>
 
 <template>
-    <div class="shorten_link">
-        <div class="full_link">https://www.frontendmentor.io</div>
+    <div class="shorten_link" :class="style">
+        <div class="full_link">{{ full }}</div>
         <hr>
         <div class="short_interaction">
-            <div class="short_link">https://rel.ink/k4iKyk</div>
-            <Button text="Copy" />
+            <div class="short_link">{{ short }}</div>
+            <Button :text="button" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    setup() {
-
-
-        return {}
+    props: {
+        full: {
+            type: String
+        },
+        short: {
+            type: String
+        },
+        button: {
+            type: String
+        },
+        style: {
+            type: Object
+        }
     }
 }
 </script>

@@ -6,20 +6,37 @@ import Short from './Short.vue';
 <template>
     <form @submit.prevent="submitForm" class="shorten">
         <div class="input_form">
-            <input :class="error" type="text" placeholder="Shorten a link here...">
-            <p v-if="false" class="error">Please ass a link</p>
+            <input :class="empty" type="text" placeholder="Shorten a link here...">
+            <p v-if="this.error" class="error">Please ass a link</p>
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <Short />
+    <Short :class="copied" full="https://www.frontendmentor.io" short="https://rel.ink/k4iKyk" :button="this.copy"
+        :style="space" />
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            copy: "Copy",
+            error: false
+        }
+    },
     computed: {
-        error() {
+        empty() {
             return {
-                border_error: false
+                border_error: this.error
+            }
+        },
+        space() {
+            return {
+                space: this.error
+            }
+        },
+        copied() {
+            return {
+                copied: this.copy === "Copied!"
             }
         },
         submitForm() {
@@ -99,6 +116,7 @@ button {
     border-radius: var(--angles-block);
 }
 
+// class
 .error {
     color: var(--color-error);
     font-size: .8em;
@@ -106,6 +124,10 @@ button {
     font-style: italic;
     text-align: left;
     margin-top: .3em;
+
+    @media #{$tabletScreen} {
+        position: absolute;
+    }
 }
 
 .border_error {
@@ -114,5 +136,16 @@ button {
     &::placeholder {
         color: var(--color-error) !important;
     }
+}
+
+.space {
+    margin-top: 3.8rem;
+}
+
+.copied:deep(button) {
+    --color-copied: var(--very-dark-blue);
+    background-color: var(--color-copied);
+    border-color: var(--color-copied);
+    pointer-events: none;
 }
 </style>
