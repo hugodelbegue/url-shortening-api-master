@@ -103,12 +103,12 @@ form {
     --background-input: #fff;
     --size-font-shorten: calc(var(--font-size) + 3px);
     --padding: var(--side);
-    --middle: calc(-185px / 2);
+    --middle: calc(-198px / 2);
     --between: var(--side);
 
     @media #{$tabletScreen} {
         --padding: 3rem 4rem;
-        --middle: calc(-157px / 2);
+        --middle: calc(-161px / 2);
         --between: 1.4rem;
     }
 }
@@ -149,12 +149,12 @@ input[type="text"] {
     background: var(--background-input);
     border: 4px solid var(--background-input);
     border-radius: var(--angles-block);
-    padding: .93em;
+    padding: .8em;
     display: flex;
     place-items: center;
     line-height: 0;
     width: 100%;
-    font-size: 1em;
+    font-size: var(--size-font-shorten);
 
     &::placeholder {
         font-size: var(--size-font-shorten);
