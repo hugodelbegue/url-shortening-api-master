@@ -8,7 +8,7 @@ import Button from './Button.vue';
         <hr>
         <div class="short_interaction">
             <div class="short_link">{{ short }}</div>
-            <Button :text="button" />
+            <Button @click="copyPress(copy)" :class="{ copied: this.text == 'Copied!' }" :text="this.text" />
         </div>
     </div>
 </template>
@@ -22,8 +22,24 @@ export default {
         short: {
             type: String
         },
-        button: {
+        copy: {
             type: String
+        }
+    },
+    data() {
+        return {
+            text: "Copy"
+        }
+    },
+    methods: {
+        copyPress(copy) {
+            if (copy) {
+                this.text = "Copied!"
+                navigator.clipboard.writeText(copy)
+                console.log('copied!')
+            } else {
+                console.log('error copy');
+            }
         }
     }
 }
@@ -97,5 +113,14 @@ export default {
     @media #{$tabletScreen} {
         --side: 1.2rem 1.6rem;
     }
+}
+
+// Class
+
+.copied {
+    --color-copied: var(--very-dark-blue);
+    background-color: var(--color-copied);
+    border-color: var(--color-copied);
+    pointer-events: none;
 }
 </style>

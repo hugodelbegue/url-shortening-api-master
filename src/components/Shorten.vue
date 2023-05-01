@@ -6,14 +6,13 @@ import Short from './Short.vue';
 <template>
     <form @submit.prevent="submitForm" class="shorten">
         <div class="input_form">
-            <input :class="empty" type="text" placeholder="Shorten a link here...">
+            <input :class="empty" type="text" placeholder="Shorten a link here..." v-model="input">
             <p v-if="this.error" class="error">Please ass a link</p>
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <div :class="space" class="list">
-        <Short v-for="link in listLinks" :key="link" :class="copied" :full="link.full" :short="link.short"
-            :button="link.button" />
+    <div v-if="this.listLinks != []" :class="space" class="list">
+        <Short v-for="link in listLinks" :key="link" :full="link.original" :short="link.short" :copy="link.short" />
     </div>
 </template>
 
@@ -21,24 +20,9 @@ import Short from './Short.vue';
 export default {
     data() {
         return {
-            listLinks: {
-                1: {
-                    full: "https://www.frontendmentor.io",
-                    short: "https://rel.ink/k4iKyk",
-                    button: "Copy"
-                },
-                2: {
-                    full: "https://www.frontendmentor.io",
-                    short: "https://rel.ink/k4iKyk",
-                    button: "Copied!"
-                },
-                3: {
-                    full: "https://www.frontendmentor.io",
-                    short: "https://rel.ink/k4iKyk",
-                    button: "Copy"
-                }
-            },
+            listLinks: [],
             error: false,
+            input: ""
         }
     },
     computed: {
@@ -52,13 +36,42 @@ export default {
                 space: this.error
             }
         },
-        copied() {
-            return {
-                copied: true
-            }
-        },
         submitForm() {
-            console.log('hello');
+            const input = this.input;
+            const url = `https://api.shrtco.de/v2/shorten?url=${input}`;
+            const param = {
+                method: 'GET'
+            }
+            this.error = false;
+            if (input !== "") {
+                fetch(url, param)
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('Request failed!');
+                    }, (networkError) => {
+                        console.log(networkError.message);
+                    }).then((jsonResponse) => {
+                        const obj = Object.values(jsonResponse);
+                        obj.forEach((link) => {
+                            const original = link.original_link
+                            const short = link.full_short_link
+                            if (original && short) {
+                                this.input = "";
+                                this.listLinks.push({
+                                    original: original,
+                                    short: short
+                                })
+                            }
+                        })
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            } else {
+                this.error = true;
+            }
         }
     }
 }
@@ -171,12 +184,5 @@ button {
     @media #{$tabletScreen} {
         margin-top: var(--space-links);
     }
-}
-
-.copied:deep(button) {
-    --color-copied: var(--very-dark-blue);
-    background-color: var(--color-copied);
-    border-color: var(--color-copied);
-    pointer-events: none;
 }
 </style>
