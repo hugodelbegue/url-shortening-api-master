@@ -32,6 +32,8 @@
     --family: 'Poppins', sans-serif;
     --line-height: 1.7;
     --font-size: 18px;
+    --font-size-small-button: calc(var(--font-size) - 1px);
+    --font-size-big-button: calc(var(--font-size) + 4px);
     --weight-regular: 400;
     --weight-medium: 500;
     --weight-bold: 700;

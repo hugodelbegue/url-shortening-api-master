@@ -45,6 +45,7 @@ h2 {
 
 li {
     cursor: pointer;
+    font-size: var(--font-size-small-button);
     transition: color .25s ease;
 
     &:hover {
@@ -57,7 +58,7 @@ li {
 
     button {
         width: 100%;
-        font-size: 1em !important;
+        font-size: var(--font-size-small-button) !important;
     }
 }
 

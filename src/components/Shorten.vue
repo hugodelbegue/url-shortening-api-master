@@ -18,6 +18,9 @@ import Short from './Short.vue';
 
 <script>
 export default {
+    mounted() {
+        this.getLinkCookie();
+    },
     data() {
         return {
             listLinks: [],
@@ -63,6 +66,12 @@ export default {
                                     original: original,
                                     short: short
                                 })
+                                if (this.listLinks != []) {
+                                    // set a cookie to remember the links
+                                    setTimeout(() => {
+                                        localStorage.setItem('link', JSON.stringify(this.listLinks));
+                                    }, 300);
+                                }
                             }
                         })
                     })
@@ -71,6 +80,16 @@ export default {
                     })
             } else {
                 this.error = true;
+            }
+        }
+    },
+    methods: {
+        getLinkCookie() {
+            try {
+                let cookiesValue = JSON.parse(localStorage.getItem('link'));
+                cookiesValue == null ? this.listLinks = [] : this.listLinks = cookiesValue;
+            } catch (error) {
+                console.log(error);
             }
         }
     }
@@ -143,7 +162,7 @@ input[type="text"] {
 }
 
 button {
-    font-size: var(--size-font-shorten);
+    font-size: var(--font-size-big-button);
     border-radius: var(--angles-block);
 }
 

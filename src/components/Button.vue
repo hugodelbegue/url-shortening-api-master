@@ -20,7 +20,7 @@ button {
     color: var(--color-title-light);
     border-radius: 50px;
     padding: .8em 2.2em;
-    font-size: 1.4rem;
+    font-size: var(--font-size-big-button);
     font-weight: var(--weight-bold);
     line-height: 1;
     transition: background .2s ease;

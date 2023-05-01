@@ -32,11 +32,11 @@ export default {
         }
     },
     methods: {
+        // copy link
         copyPress(copy) {
             if (copy) {
                 this.text = "Copied!"
                 navigator.clipboard.writeText(copy)
-                console.log('copied!')
             } else {
                 console.log('error copy');
             }
@@ -74,7 +74,7 @@ export default {
     button {
         width: 100%;
         border-radius: var(--angles-block);
-        font-size: var(--size-font-shorten);
+        font-size: var(--font-size-small-button);
 
         @media #{$tabletScreen} {
             padding: .6em 1.8em;
