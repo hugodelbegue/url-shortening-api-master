@@ -8,7 +8,7 @@ import Button from './Button.vue';
         <hr>
         <div class="short_interaction">
             <div class="short_link">{{ short }}</div>
-            <Button @click="copyPress(copy)" :class="{ copied: this.text == 'Copied!' }" :text="this.text" />
+            <Button @click="copyPress(copy)" :class="{ copied: text == 'Copied!' }" :text="text" />
         </div>
     </div>
 </template>

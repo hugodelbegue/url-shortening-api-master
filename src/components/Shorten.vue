@@ -7,11 +7,11 @@ import Short from './Short.vue';
     <form @submit.prevent="submitForm" class="shorten">
         <div class="input_form">
             <input :class="empty" type="text" placeholder="Shorten a link here..." v-model="input">
-            <p v-if="this.error" class="error">Please ass a link</p>
+            <p v-if="error" class="error">Please ass a link</p>
         </div>
         <Button text="Shorten&nbsp;It!" />
     </form>
-    <div v-if="this.listLinks != []" :class="space" class="list">
+    <div v-if="listLinks != []" :class="space" class="list">
         <Short v-for="link in listLinks" :key="link" :full="link.original" :short="link.short" :copy="link.short" />
     </div>
 </template>

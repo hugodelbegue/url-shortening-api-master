@@ -35,11 +35,11 @@ import Shorten from '@/components/Shorten.vue';
         </div>
         <div class="statistics_cards">
           <div class="line_through"></div>
-          <Card class="one" img="icon-brand-recognition.svg" title="Brand Recognition" text="Boost your brand recognition with each click. Generic links don’t 
+          <Card class="one" :img="imgUrl('icon-brand-recognition.svg')" title="Brand Recognition" text="Boost your brand recognition with each click. Generic links don’t 
   mean a thing. Branded links help instil confidence in your content." />
-          <Card class="two" img="icon-detailed-records.svg" title="Detailed Records" text="Gain insights into who is clicking your links. Knowing when and where 
+          <Card class="two" :img="imgUrl('icon-detailed-records.svg')" title="Detailed Records" text="Gain insights into who is clicking your links. Knowing when and where 
   people engage with your content helps inform better decisions." />
-          <Card class="three" img="icon-fully-customizable.svg" title="Fully Customizable" text="Improve brand awareness and content discoverability through customizable 
+          <Card class="three" :img="imgUrl('icon-fully-customizable.svg')" title="Fully Customizable" text="Improve brand awareness and content discoverability through customizable 
   links, supercharging audience engagement." />
         </div>
       </div>
@@ -51,6 +51,18 @@ import Shorten from '@/components/Shorten.vue';
   </main>
   <Footer />
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      imgUrl(file) {
+        return new URL(`./assets/images/${file}`, import.meta.url).href;
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/responsive.scss';

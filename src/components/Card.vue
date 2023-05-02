@@ -1,7 +1,7 @@
 <template>
     <article class="card">
         <div class="ball_card">
-            <img :src="imgUrl(img)" :alt="alt(title)">
+            <img :src="img" :alt="alt(title)">
         </div>
         <div class="card_description">
             <h3>{{ title }}</h3>
@@ -27,9 +27,6 @@ defineProps({
 export default {
     data() {
         return {
-            imgUrl(file) {
-                return new URL(`../assets/images/${file}`, import.meta.url).href;
-            },
             alt(title) {
                 return "Icon de la la section " + title;
             }
