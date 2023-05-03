@@ -67,7 +67,7 @@ I will continue to practice different training projects.
 
 ## Author
 
-- Website - [hugodelbegue.fr](https://hugodelbegue.fr/)
+- Portfolio - [hugodelbegue.fr](https://hugodelbegue.fr/)
 - Frontend Mentor - [@hugodelbegue](https://www.frontendmentor.io/profile/HUGODELBEGUE)
 - GitHub - [hugodelbegue](https://github.com/hugodelbegue)
 
